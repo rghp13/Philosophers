@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:29 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/04 16:48:47 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:05:30 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ int		ft_atoi(const char *str);
 void	error(int erno);
 int64_t	get_time(void);
 int		init(t_info *info);
+void	*sophia(void *arg);
+int		create_threads(t_info *info);
 
 #endif

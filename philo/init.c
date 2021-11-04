@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/04 16:16:58 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:05:49 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ int	init(t_info *info)
 		info->philo[i].ate = 0;
 		info->philo[i].last_ate = info->time;
 		info->philo[i].info = info;
+		i++;
+	}
+	return (0);
+}
+
+int	create_threads(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	while (i < info->philo_num)
+	{
+		pthread_create(&info->philo[i].thread, NULL, sophia, &info->philo[i]);
 		i++;
 	}
 	return (0);
