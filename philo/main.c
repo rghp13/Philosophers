@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:54:57 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/03 19:41:32 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/04 16:58:01 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ int	main(int argc, char **argv)
 {
 	t_info	info;
 
-	if (argc != 5 || argc != 6)
-	{
-		printf("Error! Invalid argc\n");
-		return (0);
-	}
-	parse(&info, argv);
-	init(info);
+	if (argc != 5 && argc != 6)
+		error(0);
+	parse(&info, argv, argc);
+	init(&info);
+	create_threads(&info);
 	return (0);
 }
