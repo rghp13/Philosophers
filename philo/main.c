@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:54:57 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/04 18:18:16 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/05 14:41:40 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,12 @@ void	*sophia(void *arg)
 	philo = arg;
 	while (philo->ate < philo->info->fedlimit || philo->info->fedlimit == -1)
 	{
-		p_think(philo);
-		p_eat(philo);
-		p_sleep(philo);
+		//p_think(philo);
+		//p_eat(philo);
+		//p_sleep(philo);
+		philo->ate++;
+		printf("Philo %d ate %d times\n", philo->id, philo->ate);
+		usleep(1000);
 	}
 	return (NULL);
 }
