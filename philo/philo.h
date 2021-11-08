@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:29 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 15:11:20 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/08 20:02:48 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <stdint.h>
+
+# define FORK "has taken a fork\n"
+# define EAT "is eating\n"
+# define SLEEP "is sleeping\n"
+# define THINK "is thinking\n"
+# define DIED "died\n"
 
 struct	s_info;
 
@@ -51,10 +57,17 @@ typedef struct s_info
 int		main(int argc, char **argv);
 int		parse(t_info *info, char **argv, int argc);
 int		ft_atoi(const char *str);
+void	ft_putnbr(int n);
+void	ft_putchar(char c);
+size_t	ft_strlen(const char *s);
 void	error(int erno);
 int64_t	get_time(void);
 int		init(t_info *info);
 void	*sophia(void *arg);
+void	p_eat(t_philo *philo);
+void	take_forks(t_philo *philo);
 int		create_threads(t_info *info);
+void	print_status(t_philo *philo, const char *msg);
+void	do_sleep(int time);
 
 #endif

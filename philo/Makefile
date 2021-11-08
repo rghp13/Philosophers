@@ -6,7 +6,7 @@
 #    By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 16:02:48 by rponsonn          #+#    #+#              #
-#    Updated: 2021/11/08 16:00:33 by rponsonn         ###   ########.fr        #
+#    Updated: 2021/11/08 20:00:46 by rponsonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,13 @@ CYAN = \033[36m
 PATH_SRC		=	./
 PATH_HEAD		=	./
 
-SRC_NAME		=	main.c parse.c ft_atoi.c error.c utils.c init.c thread.c
+SRC_NAME		=	main.c parse.c ft_atoi.c error.c utils.c init.c thread.c \
+					print.c
 NAME			=	philo
 OBJ_NAME		=	$(SRC_NAME:.c=.o)
 CC				=	gcc
 RM				=	rm -f
-CFLAG			=	-Wall -Wextra -Werror -g
+CFLAG			=	-Wall -Wextra -Werror -pthread -g
 SRC				=	$(addprefix $(PATH_SRC)/,$(SRC_NAME))
 OBJ				=	$(addprefix $(PATH_SRC)/,$(OBJ_NAME))
 

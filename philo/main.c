@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:54:57 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 16:17:32 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/08 19:58:20 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	main(int argc, char **argv)
 	parse(&info, argv, argc);
 	init(&info);
 	create_threads(&info);
-	monitor_thread();
+	//monitor_thread();
 	return (0);
 }
