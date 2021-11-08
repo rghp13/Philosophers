@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:00:46 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 16:02:41 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:17:48 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	*sophia(void *arg)
 
 void	p_eat(t_philo *philo)
 {
-	
+	take_forks(philo);
 }
