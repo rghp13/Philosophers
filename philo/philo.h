@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:29 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/04 18:05:30 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:11:20 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <stdint.h>
 
 struct	s_info;
 
