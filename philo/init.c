@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 15:12:52 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/08 15:40:54 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	init(t_info *info)
 	int	i;
 
 	i = 0;
-	pthread_mutex_init(info->display, NULL);
-	pthread_mutex_init(info->is_eating, NULL);
+	pthread_mutex_init(&info->display, NULL);
+	pthread_mutex_init(&info->is_eating, NULL);
 	while (i < info->philo_num)
 	{
 		info->philo[i].id = i;

@@ -6,7 +6,7 @@
 #    By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 16:02:48 by rponsonn          #+#    #+#              #
-#    Updated: 2021/11/04 16:20:32 by rponsonn         ###   ########.fr        #
+#    Updated: 2021/11/08 16:00:33 by rponsonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CYAN = \033[36m
 PATH_SRC		=	./
 PATH_HEAD		=	./
 
-SRC_NAME		=	main.c parse.c ft_atoi.c error.c utils.c init.c
+SRC_NAME		=	main.c parse.c ft_atoi.c error.c utils.c init.c thread.c
 NAME			=	philo
 OBJ_NAME		=	$(SRC_NAME:.c=.o)
 CC				=	gcc
