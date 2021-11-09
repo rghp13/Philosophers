@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:29 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/09 16:46:21 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:11:23 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	monitor_threads(t_info *info);
 void	print_death_info(t_info *info, int i);
 int		all_philo_ate(t_info *info);
 int		destroy_threads(t_info *info);
+void	error_destroy_thread(t_info *info, int ret);
 
 #endif

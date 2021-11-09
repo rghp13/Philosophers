@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:54:57 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/09 17:16:25 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:54:03 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	all_philo_ate(t_info *info)
 	int	i;
 
 	i = 0;
+	if (info->fedlimit == -1)
+		return (0);
 	while (i < info->philo_num)
 	{
 		if (info->philo[i].ate < info->fedlimit)
@@ -69,14 +71,21 @@ int	all_philo_ate(t_info *info)
 int	main(int argc, char **argv)
 {
 	t_info	info;
+	int		ret;
 
 	if (argc != 5 && argc != 6)
 		error(0);
 	parse(&info, argv, argc);
-	if (init(&info) == -1)
-		return (-1);
-	if (create_threads(&info) == -1)
-		return (-1);
+	ret = init(&info);
+	if (ret != 0)
+		error(3);
+	ret = create_threads(&info);
+	if (ret != 0)
+	{
+		info.isdead = 1;
+		error_destroy_thread(&info, ret);
+		error(4);
+	}
 	monitor_threads(&info);
 	destroy_threads(&info);
 	//pthread_mutex_lock(&info.display);
