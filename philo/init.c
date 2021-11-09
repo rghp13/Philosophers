@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 18:42:49 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/09 17:09:19 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ int	init(t_info *info)
 	int	i;
 
 	i = 0;
-	pthread_mutex_init(&info->display, NULL);//inits can fail, ADD PROTECTION
-	pthread_mutex_init(&info->is_eating, NULL);
+	if (pthread_mutex_init(&info->display, NULL))
+		return (-1);
+	if (pthread_mutex_init(&info->is_eating, NULL))
+		return (-1);
+	info->isdead = 0;
 	while (i < info->philo_num)
 	{
 		info->philo[i].id = i;
@@ -29,7 +32,8 @@ int	init(t_info *info)
 		info->philo[i].ate = 0;
 		info->philo[i].last_ate = info->time;
 		info->philo[i].info = info;
-		pthread_mutex_init(&info->forks[i], NULL);
+		if (pthread_mutex_init(&info->forks[i], NULL))
+			return (-1);
 		i++;
 	}
 	return (0);
@@ -42,11 +46,31 @@ int	create_threads(t_info *info)
 	i = 0;
 	while (i < info->philo_num)
 	{
-		pthread_create(&info->philo[i].thread, NULL, sophia, &info->philo[i]);
-		i++;
+		if (pthread_create(&info->philo[i].thread, NULL, sophia, \
+		&info->philo[i]))
+			return (-1);
+		i += 2;
 	}
+	i = 1;
+	do_sleep(1);
+	while (i < info->philo_num)
+	{
+		if (pthread_create(&info->philo[i].thread, NULL, sophia, \
+		&info->philo[i]))
+			return (-1);
+		i += 2;
+	}
+	return (0);
+}
+
+int	destroy_threads(t_info *info)
+{
+	int	i;
+
 	i = 0;
 	while (i < info->philo_num)
-		pthread_join(info->philo[i++].thread, NULL);
+	{
+		pthread_detach(info->philo[i++].thread);
+	}
 	return (0);
 }

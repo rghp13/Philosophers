@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:29:18 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 19:58:06 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/09 14:50:23 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,18 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-/*
-**if 500ms sleep it should loop a 50ms sleep until it exceeds
-*/
-
 void	do_sleep(int time)
 {
-	int	i;
+	int64_t	endtime;
+	int64_t	current;
 
-	i = 0;
-	while (i < time)
+	endtime = get_time();
+	endtime += time;
+	current = 0;
+	while (current < endtime)
 	{
 		usleep(50);
-		i += 50;
+		current = get_time();
 	}
 	return ;
 }

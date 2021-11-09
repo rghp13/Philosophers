@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:29 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/08 20:02:48 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/09 16:46:21 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_info
 	int				eat;
 	int				sleep;
 	int				fedlimit;
-	//int				currentfed;
+	int				isdead;
 	int64_t			time;
 	pthread_mutex_t	display;
 	pthread_mutex_t	is_eating;
@@ -66,8 +66,13 @@ int		init(t_info *info);
 void	*sophia(void *arg);
 void	p_eat(t_philo *philo);
 void	take_forks(t_philo *philo);
+void	drop_forks(t_philo *philo);
 int		create_threads(t_info *info);
 void	print_status(t_philo *philo, const char *msg);
 void	do_sleep(int time);
+void	monitor_threads(t_info *info);
+void	print_death_info(t_info *info, int i);
+int		all_philo_ate(t_info *info);
+int		destroy_threads(t_info *info);
 
 #endif
