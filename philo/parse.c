@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:42:41 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/09 17:59:58 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:30:58 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ int	parse(t_info *info, char **argv, int argc)
 	info->time = get_time();
 	if (info->philo_num > 200)
 		error(2);
+	if (info->fedlimit == 0)
+		error(1);
 	return (0);
 }

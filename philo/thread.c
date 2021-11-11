@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:00:46 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/09 18:58:56 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:32:45 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,32 @@ void	*sophia(void *arg)
 	t_philo	*philo;
 
 	philo = arg;
-	while (philo->info->isdead == 0)
+	while (1)
 	{
-		p_eat(philo);
-		print_status(philo, SLEEP);
+		if (p_eat(philo) == -1)
+			break ;
+		if (print_status(philo, SLEEP) == -1)
+			break ;
 		do_sleep(philo->info->sleep);
-		print_status(philo, THINK);
+		if (print_status(philo, THINK) == -1)
+			break ;
+		if (philo->info->fedlimit > 0 && philo->ate >= philo->info->fedlimit)
+			break ;
 	}
 	return (NULL);
 }
 
-void	p_eat(t_philo *philo)
+int	p_eat(t_philo *philo)
 {
+	int	ret;
+
 	take_forks(philo);
-	print_status(philo, EAT);
-	do_sleep(philo->info->eat);
+	ret = print_status(philo, EAT);
+	if (ret == 0)
+		do_sleep(philo->info->eat);
 	drop_forks(philo);
 	philo->ate += 1;
-	return ;
+	return (ret);
 }
 
 void	drop_forks(t_philo *philo)

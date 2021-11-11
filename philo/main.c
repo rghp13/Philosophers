@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:54:57 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/10 14:40:29 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:20:08 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	monitor_threads(t_info *info)
 			if (info->philo[i].last_ate + (int64_t)info->ttd < get_time())
 			{
 				print_status(&info->philo[i], DIED);
+				pthread_mutex_lock(&info->check_dead);
 				info->isdead = 1;
+				pthread_mutex_unlock(&info->check_dead);
 				pthread_mutex_unlock(&info->is_eating);
 				return ;
 			}

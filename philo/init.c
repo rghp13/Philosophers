@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/10 15:20:50 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:07:51 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	init(t_info *info)
 	if (pthread_mutex_init(&info->display, NULL))
 		return (-1);
 	if (pthread_mutex_init(&info->is_eating, NULL))
+		return (-1);
+	if (pthread_mutex_init(&info->check_dead, NULL))
 		return (-1);
 	info->isdead = 0;
 	while (i < info->philo_num)

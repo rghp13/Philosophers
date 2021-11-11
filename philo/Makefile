@@ -6,7 +6,7 @@
 #    By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 16:02:48 by rponsonn          #+#    #+#              #
-#    Updated: 2021/11/10 14:38:14 by rponsonn         ###   ########.fr        #
+#    Updated: 2021/11/11 17:56:13 by rponsonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NAME			=	philo
 OBJ_NAME		=	$(SRC_NAME:.c=.o)
 CC				=	gcc
 RM				=	rm -f
-CFLAG			=	-Wall -Wextra -Werror -pthread -g -O0
+CFLAG			=	-Wall -Wextra -Werror -pthread -g -fsanitize=thread
 SRC				=	$(addprefix $(PATH_SRC)/,$(SRC_NAME))
 OBJ				=	$(addprefix $(PATH_SRC)/,$(OBJ_NAME))
 
