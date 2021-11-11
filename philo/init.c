@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 18:07:51 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 19:12:37 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	create_threads(t_info *info)
 		i += 2;
 	}
 	i = 1;
-	do_sleep(1);
+	do_sleep(5);
 	while (i < info->philo_num)
 	{
 		if (pthread_create(&info->philo[i].thread, NULL, sophia, \
