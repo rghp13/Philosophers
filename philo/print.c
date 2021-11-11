@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:49:30 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 18:09:09 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 22:54:40 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	print_status(t_philo *philo, const char *msg)
 		return (-1);
 	}
 	pthread_mutex_unlock(&philo->info->check_dead);
-	time = (get_time() - philo->info->time);
 	pthread_mutex_lock(&philo->info->display);
+	time = (get_time() - philo->info->time);
 	write(1, "[", 1);
 	ft_putnbr(time);
 	write(1, "] ", 2);

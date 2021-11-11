@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 19:12:37 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 23:16:00 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	destroy_threads(t_info *info)
 	i = 0;
 	while (i < info->philo_num)
 	{
-		//pthread_detach(info->philo[i].thread);
 		pthread_join(info->philo[i].thread, NULL);
 		i++;
 	}

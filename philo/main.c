@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:54:57 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 19:01:55 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/11 23:15:23 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,18 @@
 
 void	death_init(t_info *info, int i)
 {
-	print_status(&info->philo[i], DIED);
+	int	time;
+
 	pthread_mutex_lock(&info->check_dead);
+	pthread_mutex_lock(&info->display);
+	time = (get_time() - info->time);
+	write(1, "[", 1);
+	ft_putnbr(time);
+	write(1, "] ", 2);
+	ft_putnbr(info->philo[i].id);
+	write(1, " ", 1);
+	write(1, DIED, ft_strlen(DIED));
+	pthread_mutex_unlock(&info->display);
 	info->isdead = 1;
 	pthread_mutex_unlock(&info->check_dead);
 	pthread_mutex_unlock(&info->is_eating);
@@ -98,7 +108,5 @@ int	main(int argc, char **argv)
 	}
 	monitor_threads(&info);
 	destroy_threads(&info);
-	//pthread_mutex_lock(&info.display);
-	//pthread_mutex_unlock(&info.display);
 	return (0);
 }
