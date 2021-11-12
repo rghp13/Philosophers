@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:29 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 19:04:08 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/12 17:24:22 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	ft_putchar(char c);
 size_t	ft_strlen(const char *s);
 void	error(int erno);
 int64_t	get_time(void);
+int		check_values(t_info *info);
 int		init(t_info *info);
 void	*sophia(void *arg);
 int		p_eat(t_philo *philo);

@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:42:41 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 18:30:58 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/12 17:23:56 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,22 @@ int	parse(t_info *info, char **argv, int argc)
 	else
 		info->fedlimit = -1;
 	info->time = get_time();
-	if (info->philo_num > 200)
-		error(2);
-	if (info->fedlimit == 0)
+	if (check_values(info) == 1)
 		error(1);
+	if (info->philo_num > 200 || info->philo_num <= 0)
+		error(2);
+	return (0);
+}
+
+int	check_values(t_info *info)
+{
+	if (info->ttd < 0)
+		return (1);
+	if (info->eat < 0)
+		return (1);
+	if (info->sleep < 0)
+		return (1);
+	if (info->fedlimit == 0 || info->fedlimit < -1)
+		return (1);
 	return (0);
 }

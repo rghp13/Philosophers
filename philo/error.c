@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 13:09:00 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/09 18:23:24 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/12 17:14:59 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ void	error(int erno)
 	else if (erno == 1)
 		printf("Error, invalid argument values\n");
 	else if (erno == 2)
-		printf("Error, too many philosophers\n");
+		printf("Error, invalid amount of philosophers\n");
 	else if (erno == 3)
-		printf("Error failed to mutex init\n");
+		printf("Error, failed to mutex init\n");
+	else if (erno == 4)
+		printf("Error, failed to init thread\n");
 	exit(erno);
 }
 
