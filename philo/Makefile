@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: romain <romain@student.42.fr>              +#+  +:+       +#+         #
+#    By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 16:02:48 by rponsonn          #+#    #+#              #
-#    Updated: 2021/11/11 23:03:13 by romain           ###   ########.fr        #
+#    Updated: 2021/11/12 12:54:29 by rponsonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NAME			=	philo
 OBJ_NAME		=	$(SRC_NAME:.c=.o)
 CC				=	gcc
 RM				=	rm -f
-CFLAG			=	-Wall -Wextra -Werror -pthread
+CFLAG			=	-Wall -Wextra -Werror -pthread -g
 SRC				=	$(addprefix $(PATH_SRC)/,$(SRC_NAME))
 OBJ				=	$(addprefix $(PATH_SRC)/,$(OBJ_NAME))
 

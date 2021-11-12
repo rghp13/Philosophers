@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:00:46 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/11 19:11:11 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/12 13:26:11 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	*sophia(void *arg)
 	philo = arg;
 	while (1)
 	{
+		if (philo->left == philo->right)
+		{
+			pthread_mutex_lock(&philo->info->forks[philo->left]);
+			print_status(philo, FORK);
+			pthread_mutex_unlock(&philo->info->forks[philo->left]);
+			return (NULL);
+		}
 		if (p_eat(philo) == -1)
 			break ;
 		if (print_status(philo, SLEEP) == -1)
@@ -88,7 +95,7 @@ void	live_till_die(t_philo *philo)
 		if (check == 1)
 			break ;
 		pthread_mutex_lock(&philo->info->is_eating);
-		philo->ate = get_time();
+		philo->last_ate = get_time();
 		pthread_mutex_unlock(&philo->info->is_eating);
 		do_sleep(slp);
 	}
