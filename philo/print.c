@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:49:30 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/12 14:49:33 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/12 18:14:03 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_status(t_philo *philo, const char *msg)
 	write(1, "[", 1);
 	ft_putnbr(time);
 	write(1, "] ", 2);
-	ft_putnbr(philo->id);
+	ft_putnbr(philo->id + 1);
 	write(1, " ", 1);
 	write(1, msg, ft_strlen(msg));
 	pthread_mutex_unlock(&philo->info->display);

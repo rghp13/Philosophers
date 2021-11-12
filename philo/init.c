@@ -6,7 +6,7 @@
 /*   By: rponsonn <rponsonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:27:32 by rponsonn          #+#    #+#             */
-/*   Updated: 2021/11/12 17:39:02 by rponsonn         ###   ########.fr       */
+/*   Updated: 2021/11/12 18:06:16 by rponsonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	destroy_threads(t_info *info)
 	i = 0;
 	while (i < info->philo_num)
 	{
-		//pthread_join(info->philo[i].thread, NULL);
 		pthread_detach(info->philo[i].thread);
 		i++;
 	}
